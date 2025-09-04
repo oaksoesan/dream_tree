@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Tree International School - Modern Design</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fefefe;
+        }
+
+        /* Modern Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #6b7280;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: #2563eb;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #2563eb;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #2563eb;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #e1f5fe 100%);
+        }
+
+        .hero-container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            position: relative;
+        }
+
+        /* Left Side - Text Section */
+        .hero-text-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e1f5fe 100%);
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 500px;
+            text-align: left;
+        }
+
+        /* Curved Divider */
+        .hero-divider {
+            width: 60px;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+            flex-shrink: 0;
+        }
+
+        .hero-divider svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* Right Side - Image Section */
+        .hero-image-section {
+            flex: 2;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-carousel {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .carousel-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                rgba(30, 41, 59, 0.3) 0%,
+                rgba(30, 41, 59, 0.1) 50%,
+                rgba(30, 41, 59, 0.4) 100%
+            );
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: #1e293b;
+        }
+
+        .hero-content .highlight {
+            color: #ffd93d;
+            position: relative;
+        }
+
+        .hero-content .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 4px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 217, 61, 0.3);
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        .hero-content p {
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: #475569;
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffd93d;
+            display: block;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Carousel Indicators */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 4;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .indicator:hover {
+            border-color: rgba(255, 255, 255, 0.8);
+            transform: scale(1.1);
+        }
+
+        .indicator.active {
+            background: white;
+            border-color: white;
+            transform: scale(1.2);
+        }
+
+        /* Mobile Responsive Design */
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .hero {
+                min-height: 100vh;
+            }
+
+            .hero-container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .hero-text-section {
+                flex: none;
+                min-height: 50vh;
+                padding: 2rem 1rem;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: clamp(2rem, 8vw, 2.8rem);
+                margin-bottom: 1rem;
+            }
+
+            .hero-content p {
+                font-size: clamp(1rem, 4vw, 1.1rem);
+                margin-bottom: 2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 250px;
+                text-align: center;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .stat-label {
+                font-size: 0.8rem;
+            }
+
+            .hero-divider {
+                width: 100%;
+                height: 20px;
+                order: 2;
+            }
+
+            .hero-divider svg {
+                transform: rotate(90deg);
+            }
+
+            .hero-image-section {
+                flex: none;
+                min-height: 50vh;
+                order: 3;
+            }
+
+            .carousel-indicators {
+                bottom: 20px;
+                gap: 8px;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .indicator {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text-section {
+                padding: 1.5rem 1rem;
+                min-height: 45vh;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero-stats {
+                gap: 1.5rem;
+                flex-direction: column;
+            }
+
+            .stat-number {
+                font-size: 1.8rem;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 200px;
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            .hero-image-section {
+                min-height: 55vh;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h1 {
+            animation: slideIn 1s ease-out 0.3s both;
+        }
+
+        .hero-content p {
+            animation: slideIn 1s ease-out 0.6s both;
+        }
+
+        .hero-buttons {
+            animation: slideIn 1s ease-out 0.9s both;
+        }
+
+        .hero-stats {
+            animation: slideIn 1s ease-out 1.2s both;
+        }
+
+        .carousel-indicators {
+            animation: slideIn 1s ease-out 1.5s both;
+        }
+
+
+        /* Programs Section */
+        .programs-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #e1f5fe 100%);
+        }
+
+        .programs-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #64748b;
+            margin-bottom: 3rem;
+        }
+
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .tab-btn {
+            background: white;
+            border: 2px solid #e2e8f0;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #64748b;
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-color: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Programs Grid */
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .program-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.2s ease;
+            position: relative;
+            overflow: hidden;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--card-color);
+        }
+
+        .program-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Program Card Colors */
+        .bright-star {
+            --card-color: linear-gradient(135deg, #fff3cd 0%, #ffd93d 100%);
+        }
+
+        .morning-star {
+            --card-color: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+        }
+
+        .sunflower {
+            --card-color: linear-gradient(135deg, #fdcb6e 0%, #f39c12 100%);
+        }
+
+        .lighthouse {
+            --card-color: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+        }
+
+        .program-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            margin-bottom: 1rem;
+            background: var(--card-color);
+            flex-shrink: 0;
+        }
+
+        .program-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .program-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 0.4rem;
+        }
+
+        .age-range {
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 0.4rem 0.8rem;
+            border-radius: 16px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+            width: fit-content;
+        }
+
+        .program-content p {
+            color: #64748b;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            flex: 1;
+        }
+
+        .program-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-top: auto;
+        }
+
+        .feature {
+            background: #e2e8f0;
+            color: #475569;
+            padding: 0.25rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* Schedule Grid */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .schedule-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+
+        .schedule-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .schedule-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .schedule-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .schedule-card p {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .programs-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.2rem;
+            }
+
+            .program-card {
+                min-height: 280px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-header h2 {
+                font-size: clamp(2rem, 5vw, 2.5rem);
+            }
+
+            .section-header p {
+                font-size: clamp(1rem, 3vw, 1.1rem);
+            }
+
+            .programs-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .program-card {
+                min-height: 250px;
+                padding: 1.2rem;
+            }
+
+            .program-content h3 {
+                font-size: clamp(1.1rem, 4vw, 1.2rem);
+            }
+
+            .program-content p {
+                font-size: clamp(0.85rem, 3vw, 0.9rem);
+            }
+
+            .schedule-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-navigation {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+
+            .tab-btn {
+                width: 200px;
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .programs-container {
+                padding: 0 1rem;
+            }
+
+            .program-card {
+                padding: 1rem;
+                min-height: 220px;
+            }
+
+            .program-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+
+            .feature {
+                font-size: 0.7rem;
+                padding: 0.2rem 0.5rem;
+            }
+        }
+
+        /* Facilities Section */
+        .facilities-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .facilities-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .facilities-gallery {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            grid-template-rows: repeat(4, 200px);
+            gap: 1.5rem;
+        }
+
+        .facility-card {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            will-change: transform;
+        }
+
+        /* Campus Main - Largest Feature */
+        .facility-card.campus-main {
+            grid-column: span 4;
+            grid-row: span 2;
+        }
+
+        /* Library - Medium */
+        .facility-card.library {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        /* Standard facilities */
+        .facility-card.monastery,
+        .facility-card.playroom {
+            grid-column: span 3;
+            grid-row: span 1;
+        }
+
+        .facility-card.classroom,
+        .facility-card.playground {
+            grid-column: span 3;
+            grid-row: span 1;
+        }
+
+        .facility-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .facility-image {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .facility-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.2s ease;
+            will-change: transform;
+        }
+
+        .facility-card:hover .facility-image img {
+            transform: scale(1.05);
+        }
+
+        .facility-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.85), rgba(118, 75, 162, 0.75));
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+        }
+
+        .facility-card:hover .facility-overlay {
+            opacity: 1;
+        }
+
+        .facility-content {
+            text-align: center;
+            color: white;
+            max-width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .facility-content h3 {
+            font-size: clamp(1.2rem, 2.8vw, 1.6rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .facility-description {
+            margin-bottom: 1.2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .facility-description p {
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .facility-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Campus main gets special treatment */
+        .campus-main .facility-content h3 {
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+        }
+
+        .campus-main .facility-description p {
+            font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+            max-width: 80%;
+            margin: 0 auto 0.8rem;
+        }
+
+        .facility-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            justify-content: center;
+        }
+
+        .feature-tag {
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 12px;
+            font-size: clamp(0.7rem, 1.4vw, 0.8rem);
+            font-weight: 500;
+            backdrop-filter: blur(8px);
+        }
+
+        /* Footer Section */
+        .footer-section {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 80px 0 0;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-logo i {
+            font-size: 2rem;
+            color: #667eea;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+        }
+
+        .footer-column p {
+            color: #94a3b8;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(102, 126, 234, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .footer-column h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #667eea;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            color: #667eea;
+            margin-top: 0.2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-item span {
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(148, 163, 184, 0.2);
+            padding: 2rem 0;
+        }
+
+        .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-bottom-content p {
+            color: #94a3b8;
+            margin: 0;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-bottom-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom-links a:hover {
+            color: #667eea;
+        }
+
+        /* Responsive Design for Facilities and Footer */
+        @media (max-width: 1200px) {
+            .facilities-gallery {
+                grid-template-columns: repeat(4, 1fr);
+                grid-template-rows: repeat(5, 180px);
+                gap: 1.2rem;
+            }
+
+            .facility-card.campus-main {
+                grid-column: span 4;
+                grid-row: span 2;
+            }
+
+            .facility-card.library {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+
+            .facility-card.monastery,
+            .facility-card.playroom,
+            .facility-card.classroom,
+            .facility-card.playground {
+                grid-column: span 2;
+                grid-row: span 1;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .facilities-gallery {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(6, 200px);
+                gap: 1.2rem;
+            }
+
+            .facility-card.campus-main {
+                grid-column: span 3;
+                grid-row: span 2;
+            }
+
+            .facility-card.library {
+                grid-column: span 3;
+                grid-row: span 1;
+            }
+
+            .facility-card.monastery,
+            .facility-card.playroom,
+            .facility-card.classroom,
+            .facility-card.playground {
+                grid-column: span 3;
+                grid-row: span 1;
+            }
+
+            .facility-overlay {
+                padding: 1.2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .facilities-container {
+                padding: 0 1rem;
+            }
+
+            .facilities-gallery {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 220px);
+                gap: 1rem;
+            }
+
+            .facility-card.campus-main,
+            .facility-card.library,
+            .facility-card.monastery,
+            .facility-card.playroom,
+            .facility-card.classroom,
+            .facility-card.playground {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .facility-card.campus-main {
+                grid-row: span 2;
+            }
+
+            .facility-overlay {
+                padding: 1rem;
+            }
+
+            .facility-content h3 {
+                font-size: clamp(1.1rem, 4.5vw, 1.3rem);
+                margin-bottom: 0.8rem;
+            }
+
+            .facility-description p {
+                font-size: clamp(0.8rem, 3.8vw, 0.9rem);
+            }
+
+            .campus-main .facility-content h3 {
+                font-size: clamp(1.3rem, 5vw, 1.5rem);
+            }
+
+            .campus-main .facility-description p {
+                font-size: clamp(0.85rem, 4vw, 0.95rem);
+                max-width: 90%;
+            }
+
+            .facility-features {
+                gap: 0.3rem;
+            }
+
+            .feature-tag {
+                font-size: clamp(0.7rem, 3vw, 0.8rem);
+                padding: 0.2rem 0.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-bottom-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .footer-bottom-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .facilities-gallery {
+                grid-template-rows: repeat(6, 200px);
+            }
+
+            .facility-card.campus-main {
+                grid-row: span 2;
+            }
+
+            .facility-overlay {
+                padding: 0.8rem;
+            }
+
+            .facility-content h3 {
+                font-size: clamp(1rem, 5vw, 1.2rem);
+            }
+
+            .facility-description p {
+                font-size: clamp(0.75rem, 4vw, 0.85rem);
+            }
+
+            .campus-main .facility-description p {
+                max-width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fas fa-tree"></i>
+                Dream Tree
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#teachers">Teachers</a></li>
+                <li><a href="#admission">Admission</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <a href="#enroll" class="cta-button">Enroll Now</a>
+            
+            <button class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <!-- Left Side - Text Content -->
+            <div class="hero-text-section">
+                <div class="hero-content">
+                    <h1>
+                        A <span class="highlight">nurturing</span> approach to early childhood education
+                    </h1>
+                    <p>
+                        Cultivate your child's potential in a warm, supportive environment with our international curriculum and experienced teachers.
+                    </p>
+                    
+                    <div class="hero-buttons">
+                        <a href="#enroll" class="btn-primary">Schedule a Visit</a>
+                        <a href="#programs" class="btn-secondary">View Programs</a>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">8+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4</span>
+                            <span class="stat-label">Age Programs</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Happy Families</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Curved Divider -->
+            <div class="hero-divider">
+                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path d="M0,0 L100,0 L100,20 Q50,40 0,20 Z" fill="url(#gradient1)"/>
+                    <path d="M0,20 L100,20 L100,40 Q50,60 0,40 Z" fill="url(#gradient2)"/>
+                    <path d="M0,40 L100,40 L100,60 Q50,80 0,60 Z" fill="url(#gradient3)"/>
+                    <path d="M0,60 L100,60 L100,80 Q50,100 0,80 Z" fill="url(#gradient4)"/>
+                    <path d="M0,80 L100,80 L100,100 L0,100 Z" fill="url(#gradient5)"/>
+                    <defs>
+                        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#ffd93d;stop-opacity:0.8" />
+                            <stop offset="100%" style="stop-color:#ffd93d;stop-opacity:0.3" />
+                        </linearGradient>
+                        <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#ffd93d;stop-opacity:0.3" />
+                            <stop offset="100%" style="stop-color:#ffd93d;stop-opacity:0.6" />
+                        </linearGradient>
+                        <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#ffd93d;stop-opacity:0.6" />
+                            <stop offset="100%" style="stop-color:#ffd93d;stop-opacity:0.4" />
+                        </linearGradient>
+                        <linearGradient id="gradient4" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#ffd93d;stop-opacity:0.4" />
+                            <stop offset="100%" style="stop-color:#ffd93d;stop-opacity:0.7" />
+                        </linearGradient>
+                        <linearGradient id="gradient5" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#ffd93d;stop-opacity:0.7" />
+                            <stop offset="100%" style="stop-color:#ffd93d;stop-opacity:0.2" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+
+            <!-- Right Side - Image Carousel -->
+            <div class="hero-image-section">
+                <div class="hero-carousel">
+                    <div class="carousel-slide active">
+                        <img src="images/school3.jpg" alt="Dream Tree School">
+                        <div class="carousel-overlay"></div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/school.jpg" alt="Dream Tree Campus">
+                        <div class="carousel-overlay"></div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/new.jpg" alt="Dream Tree Students">
+                        <div class="carousel-overlay"></div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/banner (6).jpg" alt="Dream Tree Classroom">
+                        <div class="carousel-overlay"></div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/img21.jpg" alt="Dream Tree Activities">
+                        <div class="carousel-overlay"></div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="images/banner (4).jpg" alt="Dream Tree Learning">
+                        <div class="carousel-overlay"></div>
+                    </div>
+                </div>
+
+                <!-- Carousel Indicators -->
+                <div class="carousel-indicators">
+                    <button class="indicator active" data-slide="0"></button>
+                    <button class="indicator" data-slide="1"></button>
+                    <button class="indicator" data-slide="2"></button>
+                    <button class="indicator" data-slide="3"></button>
+                    <button class="indicator" data-slide="4"></button>
+                    <button class="indicator" data-slide="5"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section id="programs" class="programs-section">
+        <div class="programs-container">
+            <div class="section-header">
+                <h2>Journey Through Childhood</h2>
+                <p>Discover our age-appropriate programs designed to nurture your child's development at every stage</p>
+                
+                <!-- Tab Navigation -->
+                <div class="tab-navigation">
+                    <button class="tab-btn active" data-tab="programs">Programs</button>
+                    <button class="tab-btn" data-tab="schedule">Class Schedule</button>
+                </div>
+            </div>
+
+            <!-- Programs Content -->
+            <div id="programs-content" class="tab-content active">
+                <div class="programs-grid">
+                    <!-- Bright Star Program -->
+                    <div class="program-card bright-star">
+                        <div class="program-icon">
+                            <i class="fas fa-baby"></i>
+                        </div>
+                        <div class="program-content">
+                            <h3>Bright Star</h3>
+                            <div class="age-range">1 - 2 Years</div>
+                            <p>The Bright Star Class is designed to help toddlers to socialize with peers with the help of caregivers and family as well as to have the confidence to try new things and explore their environment.</p>
+                            <div class="program-features">
+                                <span class="feature">Sensory Play</span>
+                                <span class="feature">Social Skills</span>
+                                <span class="feature">Motor Development</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Morning Star Program -->
+                    <div class="program-card morning-star">
+                        <div class="program-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="program-content">
+                            <h3>Morning Star</h3>
+                            <div class="age-range">2 - 3 Years</div>
+                            <p>The Morning Star class is designed to offer exploration opportunities and social play with classmates, which will lay the foundation for future academic success.</p>
+                            <div class="program-features">
+                                <span class="feature">Exploration</span>
+                                <span class="feature">Cooperative Play</span>
+                                <span class="feature">Language Growth</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sunflower Program -->
+                    <div class="program-card sunflower">
+                        <div class="program-icon">
+                            <i class="fas fa-sun"></i>
+                        </div>
+                        <div class="program-content">
+                            <h3>Sunflower</h3>
+                            <div class="age-range">3 - 4 Years</div>
+                            <p>The Sunflower class promotes letter recognition and phonemic awareness through a thematic approach that introduces children to alphabet letters using appropriate multisensory activities.</p>
+                            <div class="program-features">
+                                <span class="feature">Letter Recognition</span>
+                                <span class="feature">Number Sense</span>
+                                <span class="feature">Thematic Learning</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lighthouse Program -->
+                    <div class="program-card lighthouse">
+                        <div class="program-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="program-content">
+                            <h3>Lighthouse</h3>
+                            <div class="age-range">4 - 6 Years</div>
+                            <p>The lighthouse class is designed to emphasize phonemic awareness and alphabet recognition to build reading readiness skills. Valuable life skills will also ensure students to have a successful and positive foundation for all future learning.</p>
+                            <div class="program-features">
+                                <span class="feature">Reading Readiness</span>
+                                <span class="feature">Life Skills</span>
+                                <span class="feature">Academic Prep</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Class Schedule Content -->
+            <div id="schedule-content" class="tab-content">
+                <div class="schedule-grid">
+                    <div class="schedule-card">
+                        <div class="schedule-icon">
+                            <i class="fa fa-car"></i>
+                        </div>
+                        <h4>Assembly Time</h4>
+                        <p>Daily morning gathering to start the day with enthusiasm</p>
+                    </div>
+
+                    <div class="schedule-card">
+                        <div class="schedule-icon">
+                            <i class="fa fa-hourglass-2"></i>
+                        </div>
+                        <h4>Circle Time</h4>
+                        <p>Interactive group discussions and learning activities</p>
+                    </div>
+
+                    <div class="schedule-card">
+                        <div class="schedule-icon">
+                            <i class="fa fa-language"></i>
+                        </div>
+                        <h4>Zoo Phonics</h4>
+                        <p>Fun phonetic learning through animal-based alphabet system</p>
+                    </div>
+
+                    <div class="schedule-card">
+                        <div class="schedule-icon">
+                            <i class="fa fa-pencil"></i>
+                        </div>
+                        <h4>Mathematics</h4>
+                        <p>Number concepts and early math skills development</p>
+                    </div>
+
+                    <div class="schedule-card">
+                        <div class="schedule-icon">
+                            <i class="fa fa-comments"></i>
+                        </div>
+                        <h4>Conversation</h4>
+                        <p>Language development through guided conversations</p>
+                    </div>
+
+                    <div class="schedule-card">
+                        <div class="schedule-icon">
+                            <i class="fa fa-lightbulb"></i>
+                        </div>
+                        <h4>Science</h4>
+                        <p>Hands-on exploration of scientific concepts</p>
+                    </div>
+
+                    <div class="schedule-card">
+                        <div class="schedule-icon">
+                            <i class="fa fa-paint-brush"></i>
+                        </div>
+                        <h4>Arts & Craft</h4>
+                        <p>Creative expression through various art mediums</p>
+                    </div>
+
+                    <div class="schedule-card">
+                        <div class="schedule-icon">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <h4>Social Studies</h4>
+                        <p>Understanding community and cultural awareness</p>
+                    </div>
+
+                    <div class="schedule-card">
+                        <div class="schedule-icon">
+                            <i class="fa fa-globe"></i>
+                        </div>
+                        <h4>Theme Activities</h4>
+                        <p>Weekly themed learning adventures and projects</p>
+                    </div>
+
+                    <div class="schedule-card">
+                        <div class="schedule-icon">
+                            <i class="fa fa-child"></i>
+                        </div>
+                        <h4>Outdoor Activity</h4>
+                        <p>Physical development and fresh air play time</p>
+                    </div>
+
+                    <div class="schedule-card">
+                        <div class="schedule-icon">
+                            <i class="fa fa-bullhorn"></i>
+                        </div>
+                        <h4>Public Speaking</h4>
+                        <p>Building confidence through presentation skills</p>
+                    </div>
+
+                    <div class="schedule-card">
+                        <div class="schedule-icon">
+                            <i class="fa fa-headphones"></i>
+                        </div>
+                        <h4>Listening</h4>
+                        <p>Developing auditory skills and attention span</p>
+                    </div>
+
+                    <div class="schedule-card">
+                        <div class="schedule-icon">
+                            <i class="fa fa-music"></i>
+                        </div>
+                        <h4>Music and Movement</h4>
+                        <p>Rhythm, melody, and physical coordination activities</p>
+                    </div>
+
+                    <div class="schedule-card">
+                        <div class="schedule-icon">
+                            <i class="fa fa-book"></i>
+                        </div>
+                        <h4>Language Reading & Writing</h4>
+                        <p>Literacy development through reading and writing practice</p>
+                    </div>
+
+                    <div class="schedule-card">
+                        <div class="schedule-icon">
+                            <i class="fa fa-puzzle-piece"></i>
+                        </div>
+                        <h4>Fine Motor Activity</h4>
+                        <p>Developing dexterity and hand-eye coordination</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="facilities-section">
+        <div class="facilities-container">
+            <div class="section-header">
+                <h2>Our Facilities</h2>
+                <p>Discover our state-of-the-art facilities designed to provide a safe, nurturing, and stimulating environment for learning and growth</p>
+            </div>
+
+            <div class="facilities-gallery">
+                <!-- Campus - Largest Feature -->
+                <div class="facility-card campus-main">
+                    <div class="facility-image">
+                        <img src="images/banner.jpg" alt="Dream Tree Campus">
+                        <div class="facility-overlay">
+                            <div class="facility-content">
+                                <h3>Dream Tree Campus</h3>
+                                <div class="facility-description">
+                                    <p>Our beautiful, purpose-built campus provides a safe and inspiring environment for young learners. Featuring classical architecture with white columns and traditional Myanmar design elements, our facility offers the perfect blend of elegance and functionality for early childhood education.</p>
+                                    <p>Security features include 24/7 CCTV surveillance, fire prevention systems, controlled access gates, and trained security personnel ensuring complete safety for all children and staff.</p>
+                                </div>
+                                <div class="facility-features">
+                                    <span class="feature-tag">Beautiful Architecture</span>
+                                    <span class="feature-tag">24/7 Security</span>
+                                    <span class="feature-tag">Controlled Access</span>
+                                    <span class="feature-tag">Fire Safety</span>
+                                    <span class="feature-tag">Safe Environment</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Well-resourced Library -->
+                <div class="facility-card library">
+                    <div class="facility-image">
+                        <img src="images/library2.jpg" alt="School Library">
+                        <div class="facility-overlay">
+                            <div class="facility-content">
+                                <h3>Well-resourced Library</h3>
+                                <div class="facility-description">
+                                    <p>Our library features extensive collections of fiction, non-fiction, and picture story books. The "Dream Tree Theater" corner provides an engaging storytelling space where children develop a love for reading and literature.</p>
+                                </div>
+                                <div class="facility-features">
+                                    <span class="feature-tag">Fiction & Non-Fiction</span>
+                                    <span class="feature-tag">Story Theater</span>
+                                    <span class="feature-tag">Reading Programs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monastery/Prayer Room -->
+                <div class="facility-card monastery">
+                    <div class="facility-image">
+                        <img src="images/banner (4).jpg" alt="Monastery Room">
+                        <div class="facility-overlay">
+                            <div class="facility-content">
+                                <h3>Meditation & Mindfulness Space</h3>
+                                <div class="facility-description">
+                                    <p>A peaceful space designed for quiet reflection, mindfulness activities, and cultural learning. This serene environment helps children develop emotional awareness and cultural appreciation.</p>
+                                </div>
+                                <div class="facility-features">
+                                    <span class="feature-tag">Mindfulness</span>
+                                    <span class="feature-tag">Cultural Learning</span>
+                                    <span class="feature-tag">Quiet Reflection</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Toys & Play Room -->
+                <div class="facility-card playroom">
+                    <div class="facility-image">
+                        <img src="images/banner (6).jpg" alt="Toys and Play Room">
+                        <div class="facility-overlay">
+                            <div class="facility-content">
+                                <h3>Interactive Play Center</h3>
+                                <div class="facility-description">
+                                    <p>A vibrant, well-organized play space featuring educational toys, building blocks, dramatic play areas, and interactive learning stations that stimulate creativity and cognitive development.</p>
+                                </div>
+                                <div class="facility-features">
+                                    <span class="feature-tag">Educational Toys</span>
+                                    <span class="feature-tag">Building Blocks</span>
+                                    <span class="feature-tag">Dramatic Play</span>
+                                    <span class="feature-tag">Learning Stations</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modern Classrooms -->
+                <div class="facility-card classroom">
+                    <div class="facility-image">
+                        <img src="images/room1.jpg" alt="Modern Classroom">
+                        <div class="facility-overlay">
+                            <div class="facility-content">
+                                <h3>Modern Classrooms</h3>
+                                <div class="facility-description">
+                                    <p>Age-appropriate learning environments with proper ventilation, natural lighting, comfortable furniture, and educational technology to support effective teaching and learning.</p>
+                                </div>
+                                <div class="facility-features">
+                                    <span class="feature-tag">Natural Lighting</span>
+                                    <span class="feature-tag">Educational Technology</span>
+                                    <span class="feature-tag">Comfortable Furniture</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adventure Playgrounds -->
+                <div class="facility-card playground">
+                    <div class="facility-image">
+                        <img src="images/pg1.jpg" alt="Adventure Playground">
+                        <div class="facility-overlay">
+                            <div class="facility-content">
+                                <h3>Adventure Playgrounds</h3>
+                                <div class="facility-description">
+                                    <p>Safe, challenging outdoor play equipment designed to develop gross motor skills, confidence, and social interaction among children of all ages and abilities.</p>
+                                </div>
+                                <div class="facility-features">
+                                    <span class="feature-tag">Motor Skills</span>
+                                    <span class="feature-tag">Safe Design</span>
+                                    <span class="feature-tag">Social Play</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <div class="footer-content">
+                <!-- School Info -->
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <i class="fas fa-tree"></i>
+                        <h3>Dream Tree International School</h3>
+                    </div>
+                    <p>Nurturing young minds with compassion, wisdom, and knowledge in a supportive international environment.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/dreamtreeschool" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#programs">Programs</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#facilities">Facilities</a></li>
+                        <li><a href="#admission">Admission</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Programs -->
+                <div class="footer-column">
+                    <h4>Our Programs</h4>
+                    <ul class="footer-links">
+                        <li><a href="#programs">Bright Star (1-2 Years)</a></li>
+                        <li><a href="#programs">Morning Star (2-3 Years)</a></li>
+                        <li><a href="#programs">Sunflower (3-4 Years)</a></li>
+                        <li><a href="#programs">Lighthouse (4-6 Years)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="footer-column">
+                    <h4>Contact Information</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>148/R, A One St., Ward(5)<br>Mayangone Township<br>Yangon, Myanmar</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+95(9)260908848</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@dreamtreeschool.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 Dream Tree International School. All rights reserved.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Admissions Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Hero Carousel Functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const indicators = document.querySelectorAll('.indicator');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            // Remove active class from all slides and indicators
+            slides.forEach(slide => slide.classList.remove('active'));
+            indicators.forEach(indicator => indicator.classList.remove('active'));
+            
+            // Add active class to current slide and indicator
+            slides[index].classList.add('active');
+            indicators[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            showSlide(currentSlide);
+        }
+
+        // Auto-advance carousel every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        // Manual carousel control via indicators
+        indicators.forEach((indicator, index) => {
+            indicator.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+        // Tab functionality for Programs section
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const targetTab = this.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and content
+                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding content
+                this.classList.add('active');
+                document.getElementById(targetTab + '-content').classList.add('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Pause carousel on hover
+        const heroSection = document.querySelector('.hero');
+        let carouselInterval = setInterval(nextSlide, 5000);
+
+        heroSection.addEventListener('mouseenter', () => {
+            clearInterval(carouselInterval);
+        });
+
+        heroSection.addEventListener('mouseleave', () => {
+            carouselInterval = setInterval(nextSlide, 5000);
+        });
+    </script>
+</body>
+</html>

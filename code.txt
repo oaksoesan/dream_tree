@@ -1,0 +1,40 @@
+background: linear-gradient(rgba(4, 9, 30, 0.7), rgba(4, 9, 30, 0.7)), url(images/banner.jpg);
+
+<div class="text-box">
+            <h1>Dream Tree International School</h1>
+            <p>
+                At Dream Tree International School, children are cultivated into academic scholars and future leaders by fostering team work, self esteem, problem solving and a love for learning.
+            </p>
+            <a href="programs.html" class="hero-btn">Visit Us To know More</a>
+        </div>
+
+<h4>About Us</h4>
+        <p>Welcome to Dream Tree International School. To schedule a visit or for more information, please contact us.
+        </p> <br>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3817.9943019468615!2d96.13851807332662!3d16.876176417334385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30c1952e3fa00e75%3A0xcb206cfd6365ae4a!2sDream%20Tree%20International%20School!5e0!3m2!1sen!2smm!4v1706804514625!5m2!1sen!2smm" width="500" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        <div class="icons">
+            <i class="fa fa-address-book-o"><p class="p1">148/R, A One St., Ward (5), Mayangone Township, Yangon , Myanmar</p1></i>
+            <i class="fa fa-phone">+95(9)260908848</i>
+            <a href="https://www.facebook.com/dreamtreeschool" ><i class="fa-brands fa-facebook"></i></a>
+        </div>
+
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+}
+
+.footer h4 {
+    margin-bottom: 5px;
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.icons {
+  color: blue;
+  margin: 0 13px;
+  cursor: pointer;
+  padding: 18px 0;
+}

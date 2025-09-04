@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Tree</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+
+</head>
+
+<body>
+    <section class="header">
+
+        <nav class="navbar">
+            <a href="DTIS.html"><img src="images/logo2.jpg"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fas fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="DTIS.html" >HOME</a></li>
+                    <li><a href="aboutus.html" >ABOUT US</a></li>
+                    <li><a href="programs.html"> PROGRAMS</a></li>
+                    <li><a href="admission.html" >ADMISSION</a></li>
+                    <li><a href="events.html">EVENTS</a></li>
+                </ul>
+            </div>
+            <i class="fas fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <section class="program">
+
+            <div class="program1">
+                <h1>Bright Star (1-2 years old)</h1>
+                <p> The Bright Star Class is designed to help toddlers to socialize with peers with the help of caregivers and family as well as to have the confidence to try new things and explore their environment.
+The Toddlers are taught in a safe environment by using simple words so they can follow simple routines. The activities they do helps in training them to improve fine and gross motor skills with the help of sensory plays to get them ready for learning.
+</p>
+            </div>
+
+
+                <div class="program1">
+                    <h1>Morning Star (2-3 years old)</h1>
+                    <p> The Morning Star class is designed to offer exploration opportunities and social play with classmates,
+                      which will lay the foundation for future academic success.Active,eager and full of energy, two-to three-year-old children are curious about their surrounding environment, ready to absorb new vocabulary words, able to begin
+                      comprehending the concept of cooperative play, all the while developing fine and gross motor skills. Our qualified teachers will guide these young scholars in a creative learning environment with age appropriate materials in well-designed play areas.
+                      This will foster social growth as children move from independent to cooperative play. Thematic units and hands on activities provide the framework to enhance hand eye coordination, spatial development, visual tracking, fine motor development and language growth.
+                    </p>
+                </div>
+
+
+                <div class="program1">
+                        <h1>Sunflower (3-4 years old)</h1>
+                        <p> The Sunflower class promotes letter recognition and phonemic awareness through a thematic approach that introduces children to alphabet letters using developmentally appropriate multisensory activities. Number sense is also cultivated through multisensory activities, movement, and play.
+Three to four year olds experience rapid growth as they continue to develop new listening, speaking, memory building, sequencing and physical skills. Our teachers strive to meet the individual needs of each student to ensure developmental success. The curriculum is designed to help children build confidence and a love for learning.
+          </p>
+                </div>
+
+
+               <div class="program1">
+                       <h1>Lighthouse (4-5 years old)</h1>
+                       <p> The Lighthouse class is designed to emphasize critical foundational skills in phonemic awareness, alphabet recognition and number sense. Strategic use of manipulatives and lessons will be geared towards building one to one correspondence of counting.  Language-rich literature and modeling will be used to foster a love of reading. Sight words will be introduced as well as proper handwriting information of letters.
+
+Valuable life skills such as responsibility, honesty and cooperation will also be reinforced to ensure students have a successful and positive foundation for all future learning.
+ </p>
+               </div>
+
+
+               <div class="program1">
+                       <h1>Kindergarten (5-6 years old)</h1>
+                       <p>  The Kindergarten class provides curricular materials which address the unique differences and ability and development of each young scholar.
+
+Zoo-Phonics, sight word recognition, manipulatives for building number sense, hands-on science activities and social studies curriculum will be taught while teachers guide and encourage each child to develop creative and critical thinking skills.
+
+Dream Tree International School will help develop social and emotional learning skills, while fostering the autonomy and confidence needed to further the students educational journey as a lifelong scholar. </p>
+               </div>
+
+
+        </section>
+    </section>
+    <!-------Javascript for Toggle Menu------->
+    <script>
+        var navLinks = document.getElementById("navLinks");
+
+        function showMenu() {
+            navLinks.style.right = "0";
+        }
+        function hideMenu() {
+            navLinks.style.right = "-200px";
+        }
+    </script>
+</body>
+
+
+
+<!-------Footer------->
+<section class="footer">
+
+  <footer id="footer">
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+                <div class="footerimage">
+                    <img src="images/logo2.jpg">
+                </div>
+
+    </div>
+    <div class="col-md-3">
+      <div class="useful-link">
+        <h2>Dream Tree School</h2>
+        <div class="use-links">
+          <li><a href="DTIS.html"><i class="fa-solid fa-angles-right"></i> Home</a></li>
+          <li><a href="aboutus.html"><i class="fa-solid fa-angles-right"></i> About Us</a></li>
+          <li><a href="programs.html"><i class="fa-solid fa-angles-right"></i> Programs</a></li>
+          <li><a href="admission.html"><i class="fa-solid fa-angles-right"></i> Admission</a></li>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-3">
+      <div class="address">
+        <h2>Address</h2>
+        <div class="address-links">
+          <li><a href="https://www.facebook.com/dreamtreeschool"><i class="fa-brands fa-facebook-f"></i> Dream Tree International School</a></li>
+          <li class="address1"><i class="fa-solid fa-location-dot"></i> 148/R, A One St., Ward(5), Mayangone Township, Yangon, Myanmar</li>
+             <li><a href=""><i class="fa-solid fa-phone"></i>+95(9)260908848</a></li>
+             <li><a href=""><i class="fa-solid fa-envelope"></i> info@dreamtreeschool.com</a></li>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</footer>
+<!-- footer section end -->
+<!-- footer copy right section start -->
+<section id="copy-right">
+<div class="copy-right-sec"><i class="fa-solid fa-copyright"></i>
+  Copyright @2024 by<a href="#"> DTIS All rights served</a>
+</div>
+</section>

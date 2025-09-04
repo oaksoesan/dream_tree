@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Tree</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+
+</head>
+
+<body>
+    <section class="header">
+        <nav>
+            <a href="DTIS.html"><img src="images/logo2.jpg"></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fas fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="DTIS.html" >HOME</a></li>
+                    <li><a href="aboutus.html" >ABOUT US</a></li>
+                    <li><a href="programs.html"> PROGRAMS</a></li>
+                    <li><a href="admission.html" >ADMISSION</a></li>
+                    <li><a href="events.html">EVENTS</a></li>
+                </ul>
+            </div>
+            <i class="fas fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+        <div class="mission">
+            <h1>About us</h1>
+            <p class="">
+              Dream Tree is where children can grow among friends and teachers in a positive and nurturing atmosphere. Our goal is to enlighten our students by implanting a sincere attitude toward learning and exploring in the hope that they not only learn to love themselves, but also to respect and embrace one another.
+              We believe that the virtues of team work and patience will orient our students toward maturing into compassionate and influential individuals who will make a difference not only in their own lives, but the community around them.
+              We strive to provide our students with an intimate learning experience, where the school staff and teachers will respect their innocence and happiness.
+              Teachers, staff, parents and students will work together as a team, preparing our children to become humble leaders of the future.
+            </p>
+        </div>
+
+        <div class="mission">
+            <h1>Mission Statement</h1>
+            <p class="">
+              Dream Tree International School will nurture and cultivate young children to utilize teamwork and collaboration skills in a supportive environment based on the guiding and fundamental principles of wisdom, compassion and knowledge.
+            </p>
+        </div>
+
+        <div class="mission">
+            <h1>Vision</h1>
+            <p>
+              At Dream Tree International School, we believe that future success starts with the development of social and emotional skills, thinking skills early in a child's life.
+              Our passion is in their future and that is why we believe in cultivating their love for learning. The future looks bright for Myanmar with many opportunities available to those who are ready, able and determined to become more than the generations before them.
+              Dream Tree International School hopes to be that first step in the child's academic journey and future process.
+            </p>
+        </div>
+
+    </section>
+
+    <!-------Javascript for Toggle Menu------->
+    <script>
+        var navLinks = document.getElementById("navLinks");
+
+        function showMenu() {
+            navLinks.style.right = "0";
+        }
+        function hideMenu() {
+            navLinks.style.right = "-200px";
+        }
+    </script>
+</body>
+
+<!-------Footer------->
+<section class="footer">
+
+  <footer id="footer">
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+                <div class="footerimage">
+                    <img src="images/logo2.jpg">
+                </div>
+
+    </div>
+    <div class="col-md-3">
+      <div class="useful-link">
+        <h2>Dream Tree School</h2>
+        <div class="use-links">
+          <li><a href="DTIS.html"><i class="fa-solid fa-angles-right"></i> Home</a></li>
+          <li><a href="aboutus.html"><i class="fa-solid fa-angles-right"></i> About Us</a></li>
+          <li><a href="programs.html"><i class="fa-solid fa-angles-right"></i> Programs</a></li>
+          <li><a href="admission.html"><i class="fa-solid fa-angles-right"></i> Admission</a></li>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-3">
+      <div class="address">
+        <h2>Address</h2>
+        <div class="address-links">
+          <li><a href="https://www.facebook.com/dreamtreeschool"><i class="fa-brands fa-facebook-f"></i> Dream Tree International School</a></li>
+          <li class="address1"><i class="fa-solid fa-location-dot"></i> 148/R, A One St., Ward(5), Mayangone Township, Yangon, Myanmar</li>
+             <li><a href=""><i class="fa-solid fa-phone"></i>+95(9)260908848</a></li>
+             <li><a href=""><i class="fa-solid fa-envelope"></i> info@dreamtreeschool.com</a></li>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</footer>
+<!-- footer section end -->
+<!-- footer copy right section start -->
+<section id="copy-right">
+<div class="copy-right-sec"><i class="fa-solid fa-copyright"></i>
+  Copyright @2024 by<a href="#"> DTIS All rights served</a>
+</div>
+</section>
