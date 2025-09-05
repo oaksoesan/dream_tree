@@ -24,14 +24,14 @@
 
         /* Modern Navigation */
         .navbar {
-            background: rgba(255, 255, 255, 0.95);
+            background: linear-gradient(135deg, rgba(0, 48, 143, 0.95) 0%, rgba(0, 71, 146, 0.95) 100%);
             backdrop-filter: blur(20px);
             padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(137, 207, 240, 0.2);
         }
 
         .nav-container {
@@ -64,14 +64,14 @@
 
         .nav-menu a {
             text-decoration: none;
-            color: #6b7280;
+            color: white;
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
         }
 
         .nav-menu a:hover {
-            color: #00308F;
+            color: #fcd462;
         }
 
         .nav-menu a::after {
@@ -81,7 +81,7 @@
             height: 2px;
             bottom: -4px;
             left: 0;
-            background-color: #00308F;
+            background-color: #fcd462;
             transition: width 0.3s ease;
         }
 
@@ -90,8 +90,8 @@
         }
 
         .cta-button {
-            background: linear-gradient(135deg, #00308F 0%, #004792 100%);
-            color: white;
+            background: linear-gradient(135deg, #fcd462 0%, #ffb347 100%);
+            color: #00308F;
             padding: 0.75rem 1.5rem;
             border-radius: 50px;
             text-decoration: none;
@@ -103,7 +103,7 @@
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 48, 143, 0.4);
+            box-shadow: 0 10px 25px rgba(252, 212, 98, 0.4);
         }
 
         .mobile-menu-toggle {
@@ -111,7 +111,7 @@
             background: none;
             border: none;
             font-size: 1.5rem;
-            color: #00308F;
+            color: white;
             cursor: pointer;
         }
 
@@ -147,24 +147,9 @@
             text-align: left;
         }
 
-        /* Curved Divider */
-        .hero-divider {
-            width: 60px;
-            height: 100%;
-            position: relative;
-            z-index: 2;
-            flex-shrink: 0;
-        }
-
-        .hero-divider svg {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
         /* Right Side - Image Section */
         .hero-image-section {
-            flex: 2;
+            flex: 1.5;
             position: relative;
             overflow: hidden;
         }
@@ -215,11 +200,12 @@
         }
 
         .hero-content h1 {
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
-            font-weight: 700;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
             color: #1e293b;
+            letter-spacing: -0.02em;
         }
 
         .hero-content .highlight {
@@ -240,56 +226,72 @@
         }
 
         .hero-content p {
-            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-size: clamp(1.1rem, 2.8vw, 1.4rem);
             color: #475569;
             margin-bottom: 2.5rem;
-            line-height: 1.6;
+            line-height: 1.7;
+            font-weight: 400;
         }
 
         .hero-buttons {
             display: flex;
             gap: 1rem;
             margin-bottom: 3rem;
-            justify-content: center;
-            flex-wrap: wrap;
+            justify-content: flex-start;
+            flex-wrap: nowrap;
+            align-items: center;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, #00308F 0%, #004792 100%);
             color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
+            padding: 1.2rem 2.5rem;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
             font-size: 1.1rem;
-            box-shadow: 0 4px 15px rgba(0, 48, 143, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 48, 143, 0.3);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            width: 220px;
+            text-align: center;
+            display: inline-block;
+            box-sizing: border-box;
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 1rem 2rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50px;
+            background: linear-gradient(135deg, #fcd462 0%, #ffb347 100%);
+            color: #00308F;
+            padding: 1.2rem 2.5rem;
+            border: 2px solid #fcd462;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: all 0.3s ease;
             font-size: 1.1rem;
-            backdrop-filter: blur(10px);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            width: 220px;
+            text-align: center;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(252, 212, 98, 0.3);
+            box-sizing: border-box;
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 48, 143, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(0, 48, 143, 0.4);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: translateY(-3px);
+            background: linear-gradient(135deg, #ffb347 0%, #fcd462 100%);
+            color: #00308F;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(252, 212, 98, 0.4);
+            border-color: #ffb347;
         }
 
         .hero-stats {
@@ -396,16 +398,19 @@
             }
 
             .hero-buttons {
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
-                gap: 1rem;
+                gap: 0.8rem;
                 margin-bottom: 2rem;
+                flex-wrap: wrap;
             }
 
             .btn-primary,
             .btn-secondary {
-                width: 250px;
+                width: 180px;
                 text-align: center;
+                font-size: 1rem;
+                padding: 1rem 1.5rem;
             }
 
             .hero-stats {
@@ -420,20 +425,10 @@
                 font-size: 0.8rem;
             }
 
-            .hero-divider {
-                width: 100%;
-                height: 20px;
-                order: 2;
-            }
-
-            .hero-divider svg {
-                transform: rotate(90deg);
-            }
-
             .hero-image-section {
                 flex: none;
                 min-height: 50vh;
-                order: 3;
+                order: 2;
             }
 
             .carousel-indicators {
@@ -470,9 +465,9 @@
 
             .btn-primary,
             .btn-secondary {
-                width: 200px;
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
+                width: 160px;
+                padding: 0.8rem 1.2rem;
+                font-size: 0.9rem;
             }
 
             .hero-image-section {
@@ -861,8 +856,12 @@
             overflow: hidden;
             position: relative;
             cursor: pointer;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+                        box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             will-change: transform;
+            --hover-transform: translateY(-8px);
+            --hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            --hover-scale: 1.08;
         }
 
         /* Campus Main - Largest Feature */
@@ -891,8 +890,8 @@
         }
 
         .facility-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            transform: var(--hover-transform);
+            box-shadow: var(--hover-shadow);
         }
 
         .facility-image {
@@ -911,7 +910,7 @@
         }
 
         .facility-card:hover .facility-image img {
-            transform: scale(1.05);
+            transform: scale(var(--hover-scale));
         }
 
         .facility-overlay {
@@ -1047,16 +1046,16 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: rgba(0, 48, 143, 0.1);
+            background: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #00308F;
+            color: white;
             transition: all 0.3s ease;
         }
 
         .social-links a:hover {
-            background: #00308F;
+            background: rgba(255, 255, 255, 0.2);
             color: white;
             transform: translateY(-2px);
         }
@@ -1141,96 +1140,97 @@
             color: #00308F;
         }
 
-        /* About Us Section */
-        .about-section {
-            padding: 100px 0;
+        /* Mission Section */
+        .mission-section {
+            padding: 60px 0;
             background: white;
         }
 
-        .about-container {
+        .mission-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        .about-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        .about-text {
+        .mission-content {
             display: flex;
             flex-direction: column;
+            gap: 3rem;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
 
-        .about-card {
+        .mission-card {
             background: #f8fafc;
-            padding: 2rem;
-            border-radius: 16px;
+            padding: 1.5rem;
+            border-radius: 12px;
             border-left: 4px solid #00308F;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
         }
 
-        .about-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        .mission-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
-        .about-icon {
-            width: 50px;
-            height: 50px;
+        .mission-icon {
+            width: 40px;
+            height: 40px;
             background: linear-gradient(135deg, #00308F 0%, #004792 100%);
-            border-radius: 12px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            margin: 0 auto 1rem;
         }
 
-        .about-card h3 {
-            font-size: 1.4rem;
+        .mission-card h3 {
+            font-size: 1.2rem;
             font-weight: 700;
             color: #1e293b;
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
-        .about-card p {
+        .mission-card p {
             color: #64748b;
-            line-height: 1.6;
+            line-height: 1.5;
+            font-size: 0.9rem;
         }
 
-        .about-stats {
+        .mission-stats {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
         }
 
-        .stat-card {
+        .mission-stat {
             background: linear-gradient(135deg, #00308F 0%, #004792 100%);
-            padding: 2rem;
-            border-radius: 16px;
+            padding: 1.5rem;
+            border-radius: 12px;
             text-align: center;
             color: white;
             transition: transform 0.3s ease;
         }
 
-        .stat-card:hover {
-            transform: translateY(-5px);
+        .mission-stat:hover {
+            transform: translateY(-3px);
         }
 
-        .stat-card .stat-number {
-            font-size: 2.5rem;
+        .mission-stat .stat-number {
+            font-size: 2rem;
             font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
-        .stat-card .stat-label {
-            font-size: 0.9rem;
+        .mission-stat .stat-label {
+            font-size: 0.8rem;
             opacity: 0.9;
         }
 
@@ -1687,13 +1687,13 @@
 
         /* Responsive Design for New Sections */
         @media (max-width: 1024px) {
-            .about-content {
+            .mission-grid {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 1.5rem;
             }
 
-            .about-stats {
-                grid-template-columns: repeat(4, 1fr);
+            .mission-stats {
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .admission-content {
@@ -1721,8 +1721,8 @@
         }
 
         @media (max-width: 768px) {
-            .about-stats {
-                grid-template-columns: repeat(2, 1fr);
+            .mission-stats {
+                grid-template-columns: 1fr;
             }
 
             .teachers-grid {
@@ -1739,22 +1739,16 @@
         }
 
         @media (max-width: 480px) {
-            .about-stats {
-                grid-template-columns: 1fr;
+            .mission-card {
+                padding: 1.2rem;
             }
 
-            .about-card,
-            .step-card,
-            .contact-card {
-                padding: 1.5rem;
+            .mission-stat {
+                padding: 1.2rem;
             }
 
-            .stat-card {
-                padding: 1.5rem;
-            }
-
-            .stat-card .stat-number {
-                font-size: 2rem;
+            .mission-stat .stat-number {
+                font-size: 1.8rem;
             }
         }
 
@@ -1814,6 +1808,13 @@
                 padding: 1.2rem;
             }
 
+            /* Reduced hover effects for tablets */
+            .facility-card {
+                --hover-transform: translateY(-5px);
+                --hover-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+                --hover-scale: 1.05;
+            }
+
             .footer-content {
                 grid-template-columns: 1fr 1fr;
                 gap: 2rem;
@@ -1856,6 +1857,13 @@
 
             .facility-description p {
                 font-size: clamp(0.8rem, 3.8vw, 0.9rem);
+            }
+
+            /* Subtle hover effects for mobile */
+            .facility-card {
+                --hover-transform: translateY(-3px);
+                --hover-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                --hover-scale: 1.03;
             }
 
             .campus-main .facility-content h3 {
@@ -1914,6 +1922,13 @@
                 font-size: clamp(0.75rem, 4vw, 0.85rem);
             }
 
+            /* Minimal hover effects for small mobile */
+            .facility-card {
+                --hover-transform: translateY(-2px);
+                --hover-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+                --hover-scale: 1.02;
+            }
+
             .campus-main .facility-description p {
                 max-width: 95%;
             }
@@ -1930,11 +1945,10 @@
             
             <ul class="nav-menu">
                 <li><a href="#programs">Programs</a></li>
-                <li><a href="#about">About Us</a></li>
                 <li><a href="#teachers">Teachers</a></li>
-                <li><a href="#admission">Admission</a></li>
                 <li><a href="#events">Events</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#contact">Contact Us</a></li>
             </ul>
             
             <a href="#enroll" class="cta-button">Enroll Now</a>
@@ -1959,58 +1973,10 @@
                     </p>
                     
                     <div class="hero-buttons">
-                        <a href="#enroll" class="btn-primary">Schedule a Visit</a>
+                        <a href="#contact" class="btn-primary">Schedule a Visit</a>
                         <a href="#programs" class="btn-secondary">View Programs</a>
                     </div>
-                    
-                    <div class="hero-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">8+</span>
-                            <span class="stat-label">Years Experience</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">4</span>
-                            <span class="stat-label">Age Programs</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Happy Families</span>
-                        </div>
-                    </div>
                 </div>
-            </div>
-
-            <!-- Curved Divider -->
-            <div class="hero-divider">
-                <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-                    <path d="M0,0 L100,0 L100,20 Q50,40 0,20 Z" fill="url(#gradient1)"/>
-                    <path d="M0,20 L100,20 L100,40 Q50,60 0,40 Z" fill="url(#gradient2)"/>
-                    <path d="M0,40 L100,40 L100,60 Q50,80 0,60 Z" fill="url(#gradient3)"/>
-                    <path d="M0,60 L100,60 L100,80 Q50,100 0,80 Z" fill="url(#gradient4)"/>
-                    <path d="M0,80 L100,80 L100,100 L0,100 Z" fill="url(#gradient5)"/>
-                    <defs>
-                        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#fcd462;stop-opacity:0.8" />
-                            <stop offset="100%" style="stop-color:#fcd462;stop-opacity:0.3" />
-                        </linearGradient>
-                        <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#fcd462;stop-opacity:0.3" />
-                            <stop offset="100%" style="stop-color:#fcd462;stop-opacity:0.6" />
-                        </linearGradient>
-                        <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#fcd462;stop-opacity:0.6" />
-                            <stop offset="100%" style="stop-color:#fcd462;stop-opacity:0.4" />
-                        </linearGradient>
-                        <linearGradient id="gradient4" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#fcd462;stop-opacity:0.4" />
-                            <stop offset="100%" style="stop-color:#fcd462;stop-opacity:0.7" />
-                        </linearGradient>
-                        <linearGradient id="gradient5" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" style="stop-color:#fcd462;stop-opacity:0.7" />
-                            <stop offset="100%" style="stop-color:#fcd462;stop-opacity:0.2" />
-                        </linearGradient>
-                    </defs>
-                </svg>
             </div>
 
             <!-- Right Side - Image Carousel -->
@@ -2269,34 +2235,34 @@
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="about-section">
-        <div class="about-container">
+    <!-- Mission Section -->
+    <section id="mission" class="mission-section">
+        <div class="mission-container">
             <div class="section-header">
-                <h2>About Dream Tree International School</h2>
+                <h2>Our Mission & Vision</h2>
                 <p>Nurturing young minds with compassion, wisdom, and knowledge in a supportive international environment</p>
             </div>
 
-            <div class="about-content">
-                <div class="about-text">
-                    <div class="about-card">
-                        <div class="about-icon">
+            <div class="mission-content">
+                <div class="mission-grid">
+                    <div class="mission-card">
+                        <div class="mission-icon">
                             <i class="fas fa-heart"></i>
                         </div>
                         <h3>Our Mission</h3>
                         <p>To provide a nurturing, safe, and stimulating environment where children can develop their full potential through play-based learning, creative expression, and meaningful relationships.</p>
                     </div>
 
-                    <div class="about-card">
-                        <div class="about-icon">
+                    <div class="mission-card">
+                        <div class="mission-icon">
                             <i class="fas fa-eye"></i>
                         </div>
                         <h3>Our Vision</h3>
                         <p>To be Myanmar's leading early childhood education center, fostering confident, creative, and compassionate young learners who are prepared for success in an ever-changing world.</p>
                     </div>
 
-                    <div class="about-card">
-                        <div class="about-icon">
+                    <div class="mission-card">
+                        <div class="mission-icon">
                             <i class="fas fa-star"></i>
                         </div>
                         <h3>Our Values</h3>
@@ -2304,20 +2270,20 @@
                     </div>
                 </div>
 
-                <div class="about-stats">
-                    <div class="stat-card">
+                <div class="mission-stats">
+                    <div class="mission-stat">
                         <div class="stat-number">8+</div>
                         <div class="stat-label">Years of Excellence</div>
                     </div>
-                    <div class="stat-card">
+                    <div class="mission-stat">
                         <div class="stat-number">50+</div>
                         <div class="stat-label">Happy Families</div>
                     </div>
-                    <div class="stat-card">
+                    <div class="mission-stat">
                         <div class="stat-number">15+</div>
                         <div class="stat-label">Qualified Teachers</div>
                     </div>
-                    <div class="stat-card">
+                    <div class="mission-stat">
                         <div class="stat-number">4</div>
                         <div class="stat-label">Age Programs</div>
                     </div>
@@ -2374,55 +2340,6 @@
         </div>
     </section>
 
-    <!-- Admission Section -->
-    <section id="admission" class="admission-section">
-        <div class="admission-container">
-            <div class="section-header">
-                <h2>Admission Process</h2>
-                <p>Join our Dream Tree family and give your child the best start in their educational journey</p>
-            </div>
-
-            <div class="admission-content">
-                <div class="admission-steps">
-                    <div class="step-card">
-                        <div class="step-number">1</div>
-                        <h3>Schedule a Visit</h3>
-                        <p>Book a tour of our facilities and meet our teachers to see if Dream Tree is the right fit for your family.</p>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">2</div>
-                        <h3>Submit Application</h3>
-                        <p>Complete our application form with your child's information and required documents.</p>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">3</div>
-                        <h3>Assessment & Interview</h3>
-                        <p>We'll meet with you and your child to understand their needs and ensure proper placement.</p>
-                    </div>
-
-                    <div class="step-card">
-                        <div class="step-number">4</div>
-                        <h3>Enrollment</h3>
-                        <p>Complete the enrollment process and prepare for your child's exciting journey with us!</p>
-                    </div>
-                </div>
-
-                <div class="admission-requirements">
-                    <h3>Admission Requirements</h3>
-                    <ul>
-                        <li>Birth certificate or passport copy</li>
-                        <li>Recent passport-sized photos (2 copies)</li>
-                        <li>Medical certificate from licensed physician</li>
-                        <li>Immunization records</li>
-                        <li>Previous school records (if applicable)</li>
-                        <li>Parent/Guardian identification documents</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Events Section -->
     <section id="events" class="events-section">
@@ -2474,6 +2391,142 @@
                         <div class="event-date">June 5, 2024</div>
                         <h3>Art & Creativity Exhibition</h3>
                         <p>Display of children's artwork, crafts, and creative projects throughout the year.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Section -->
+    <section id="facilities" class="facilities-section">
+        <div class="facilities-container">
+            <div class="section-header">
+                <h2>Our Facilities</h2>
+                <p>Discover our state-of-the-art facilities designed to provide a safe, nurturing, and stimulating environment for learning and growth</p>
+            </div>
+
+            <div class="facilities-gallery">
+                <!-- Campus - Largest Feature -->
+                <div class="facility-card campus-main">
+                    <div class="facility-image">
+                        <img src="images/banner.jpg" alt="Dream Tree Campus">
+                        <div class="facility-overlay">
+                            <div class="facility-content">
+                                <h3>Dream Tree Campus</h3>
+                                <div class="facility-description">
+                                    <p>Our beautiful, purpose-built campus provides a safe and inspiring environment for young learners. Featuring classical architecture with white columns and traditional Myanmar design elements, our facility offers the perfect blend of elegance and functionality for early childhood education.</p>
+                                    <p>Security features include 24/7 CCTV surveillance, fire prevention systems, controlled access gates, and trained security personnel ensuring complete safety for all children and staff.</p>
+                                </div>
+                                <div class="facility-features">
+                                    <span class="feature-tag">Beautiful Architecture</span>
+                                    <span class="feature-tag">24/7 Security</span>
+                                    <span class="feature-tag">Controlled Access</span>
+                                    <span class="feature-tag">Fire Safety</span>
+                                    <span class="feature-tag">Safe Environment</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Well-resourced Library -->
+                <div class="facility-card library">
+                    <div class="facility-image">
+                        <img src="images/library2.jpg" alt="School Library">
+                        <div class="facility-overlay">
+                            <div class="facility-content">
+                                <h3>Well-resourced Library</h3>
+                                <div class="facility-description">
+                                    <p>Our library features extensive collections of fiction, non-fiction, and picture story books. The "Dream Tree Theater" corner provides an engaging storytelling space where children develop a love for reading and literature.</p>
+                                </div>
+                                <div class="facility-features">
+                                    <span class="feature-tag">Fiction & Non-Fiction</span>
+                                    <span class="feature-tag">Story Theater</span>
+                                    <span class="feature-tag">Reading Programs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monastery/Prayer Room -->
+                <div class="facility-card monastery">
+                    <div class="facility-image">
+                        <img src="images/banner (4).jpg" alt="Monastery Room">
+                        <div class="facility-overlay">
+                            <div class="facility-content">
+                                <h3>Meditation & Mindfulness Space</h3>
+                                <div class="facility-description">
+                                    <p>A peaceful space designed for quiet reflection, mindfulness activities, and cultural learning. This serene environment helps children develop emotional awareness and cultural appreciation.</p>
+                                </div>
+                                <div class="facility-features">
+                                    <span class="feature-tag">Mindfulness</span>
+                                    <span class="feature-tag">Cultural Learning</span>
+                                    <span class="feature-tag">Quiet Reflection</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Toys & Play Room -->
+                <div class="facility-card playroom">
+                    <div class="facility-image">
+                        <img src="images/banner (6).jpg" alt="Toys and Play Room">
+                        <div class="facility-overlay">
+                            <div class="facility-content">
+                                <h3>Interactive Play Center</h3>
+                                <div class="facility-description">
+                                    <p>A vibrant, well-organized play space featuring educational toys, building blocks, dramatic play areas, and interactive learning stations that stimulate creativity and cognitive development.</p>
+                                </div>
+                                <div class="facility-features">
+                                    <span class="feature-tag">Educational Toys</span>
+                                    <span class="feature-tag">Building Blocks</span>
+                                    <span class="feature-tag">Dramatic Play</span>
+                                    <span class="feature-tag">Learning Stations</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modern Classrooms -->
+                <div class="facility-card classroom">
+                    <div class="facility-image">
+                        <img src="images/room1.jpg" alt="Modern Classroom">
+                        <div class="facility-overlay">
+                            <div class="facility-content">
+                                <h3>Modern Classrooms</h3>
+                                <div class="facility-description">
+                                    <p>Age-appropriate learning environments with proper ventilation, natural lighting, comfortable furniture, and educational technology to support effective teaching and learning.</p>
+                                </div>
+                                <div class="facility-features">
+                                    <span class="feature-tag">Natural Lighting</span>
+                                    <span class="feature-tag">Educational Technology</span>
+                                    <span class="feature-tag">Comfortable Furniture</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Adventure Playgrounds -->
+                <div class="facility-card playground">
+                    <div class="facility-image">
+                        <img src="images/pg1.jpg" alt="Adventure Playground">
+                        <div class="facility-overlay">
+                            <div class="facility-content">
+                                <h3>Adventure Playgrounds</h3>
+                                <div class="facility-description">
+                                    <p>Safe, challenging outdoor play equipment designed to develop gross motor skills, confidence, and social interaction among children of all ages and abilities.</p>
+                                </div>
+                                <div class="facility-features">
+                                    <span class="feature-tag">Motor Skills</span>
+                                    <span class="feature-tag">Safe Design</span>
+                                    <span class="feature-tag">Social Play</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2619,141 +2672,6 @@
         </div>
     </section>
 
-    <!-- Facilities Section -->
-    <section id="facilities" class="facilities-section">
-        <div class="facilities-container">
-            <div class="section-header">
-                <h2>Our Facilities</h2>
-                <p>Discover our state-of-the-art facilities designed to provide a safe, nurturing, and stimulating environment for learning and growth</p>
-            </div>
-
-            <div class="facilities-gallery">
-                <!-- Campus - Largest Feature -->
-                <div class="facility-card campus-main">
-                    <div class="facility-image">
-                        <img src="images/banner.jpg" alt="Dream Tree Campus">
-                        <div class="facility-overlay">
-                            <div class="facility-content">
-                                <h3>Dream Tree Campus</h3>
-                                <div class="facility-description">
-                                    <p>Our beautiful, purpose-built campus provides a safe and inspiring environment for young learners. Featuring classical architecture with white columns and traditional Myanmar design elements, our facility offers the perfect blend of elegance and functionality for early childhood education.</p>
-                                    <p>Security features include 24/7 CCTV surveillance, fire prevention systems, controlled access gates, and trained security personnel ensuring complete safety for all children and staff.</p>
-                                </div>
-                                <div class="facility-features">
-                                    <span class="feature-tag">Beautiful Architecture</span>
-                                    <span class="feature-tag">24/7 Security</span>
-                                    <span class="feature-tag">Controlled Access</span>
-                                    <span class="feature-tag">Fire Safety</span>
-                                    <span class="feature-tag">Safe Environment</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Well-resourced Library -->
-                <div class="facility-card library">
-                    <div class="facility-image">
-                        <img src="images/library2.jpg" alt="School Library">
-                        <div class="facility-overlay">
-                            <div class="facility-content">
-                                <h3>Well-resourced Library</h3>
-                                <div class="facility-description">
-                                    <p>Our library features extensive collections of fiction, non-fiction, and picture story books. The "Dream Tree Theater" corner provides an engaging storytelling space where children develop a love for reading and literature.</p>
-                                </div>
-                                <div class="facility-features">
-                                    <span class="feature-tag">Fiction & Non-Fiction</span>
-                                    <span class="feature-tag">Story Theater</span>
-                                    <span class="feature-tag">Reading Programs</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Monastery/Prayer Room -->
-                <div class="facility-card monastery">
-                    <div class="facility-image">
-                        <img src="images/banner (4).jpg" alt="Monastery Room">
-                        <div class="facility-overlay">
-                            <div class="facility-content">
-                                <h3>Meditation & Mindfulness Space</h3>
-                                <div class="facility-description">
-                                    <p>A peaceful space designed for quiet reflection, mindfulness activities, and cultural learning. This serene environment helps children develop emotional awareness and cultural appreciation.</p>
-                                </div>
-                                <div class="facility-features">
-                                    <span class="feature-tag">Mindfulness</span>
-                                    <span class="feature-tag">Cultural Learning</span>
-                                    <span class="feature-tag">Quiet Reflection</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Toys & Play Room -->
-                <div class="facility-card playroom">
-                    <div class="facility-image">
-                        <img src="images/banner (6).jpg" alt="Toys and Play Room">
-                        <div class="facility-overlay">
-                            <div class="facility-content">
-                                <h3>Interactive Play Center</h3>
-                                <div class="facility-description">
-                                    <p>A vibrant, well-organized play space featuring educational toys, building blocks, dramatic play areas, and interactive learning stations that stimulate creativity and cognitive development.</p>
-                                </div>
-                                <div class="facility-features">
-                                    <span class="feature-tag">Educational Toys</span>
-                                    <span class="feature-tag">Building Blocks</span>
-                                    <span class="feature-tag">Dramatic Play</span>
-                                    <span class="feature-tag">Learning Stations</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Modern Classrooms -->
-                <div class="facility-card classroom">
-                    <div class="facility-image">
-                        <img src="images/room1.jpg" alt="Modern Classroom">
-                        <div class="facility-overlay">
-                            <div class="facility-content">
-                                <h3>Modern Classrooms</h3>
-                                <div class="facility-description">
-                                    <p>Age-appropriate learning environments with proper ventilation, natural lighting, comfortable furniture, and educational technology to support effective teaching and learning.</p>
-                                </div>
-                                <div class="facility-features">
-                                    <span class="feature-tag">Natural Lighting</span>
-                                    <span class="feature-tag">Educational Technology</span>
-                                    <span class="feature-tag">Comfortable Furniture</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Adventure Playgrounds -->
-                <div class="facility-card playground">
-                    <div class="facility-image">
-                        <img src="images/pg1.jpg" alt="Adventure Playground">
-                        <div class="facility-overlay">
-                            <div class="facility-content">
-                                <h3>Adventure Playgrounds</h3>
-                                <div class="facility-description">
-                                    <p>Safe, challenging outdoor play equipment designed to develop gross motor skills, confidence, and social interaction among children of all ages and abilities.</p>
-                                </div>
-                                <div class="facility-features">
-                                    <span class="feature-tag">Motor Skills</span>
-                                    <span class="feature-tag">Safe Design</span>
-                                    <span class="feature-tag">Social Play</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer Section -->
     <footer class="footer-section">
@@ -2783,11 +2701,10 @@
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="#programs">Programs</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#facilities">Facilities</a></li>
-                        <li><a href="#admission">Admission</a></li>
+                        <li><a href="#teachers">Teachers</a></li>
                         <li><a href="#events">Events</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#facilities">Facilities</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
                     </ul>
                 </div>
 
